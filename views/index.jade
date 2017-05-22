@@ -1,0 +1,20 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css')
+  body
+    block content
+      div.container
+        h1 URL Shortener Microservice
+        p User stories:
+        ul
+          li I can pass a URL as a parameter and I will receive a shortened URL in the JSON response.
+          li When I visit that shortened URL, it will redirect me to my original link.
+        h2 Example creation output
+        code { "original_url":"http://foo.com:80", "short_url":"https://little-url.herokuapp.com/8170" }
+        h2 Usage:
+        code https://little-url.herokuapp.com/2871
+        h2 Will redirect to:
+        code https://www.google.com/
