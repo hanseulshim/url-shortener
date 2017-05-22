@@ -19,7 +19,6 @@ MongoClient.connect('mongodb://hanseulshim:M5LfBte7LWra@ds149481.mlab.com:49481/
   db = database
   app.listen(port, () => {
     console.log("Running on port: " + port)
-    console.log('Connected to db')
   })
 })
 
