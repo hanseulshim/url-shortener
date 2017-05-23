@@ -8,10 +8,6 @@ var db
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-var router = require('./routes/index');
-app.use('/', router);
-
-
 const MongoClient = require('mongodb').MongoClient
 
 MongoClient.connect('mongodb://hanseulshim:M5LfBte7LWra@ds149481.mlab.com:49481/url-shortener', (err, database) => {
@@ -22,6 +18,12 @@ MongoClient.connect('mongodb://hanseulshim:M5LfBte7LWra@ds149481.mlab.com:49481/
   })
 })
 
+app.use(function(req,res,next){
+    req.db = db;
+    next();
+});
 
+var router = require('./routes/index');
+app.use('/', router);
 
 module.exports = app;
